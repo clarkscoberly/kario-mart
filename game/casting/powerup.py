@@ -12,7 +12,7 @@ class PowerUp(Actor):
         _points (int): The number of points the food is worth.
     """
     def __init__(self):
-        "Constructs a new Food."
+        "Constructs a new Powerup."
         super().__init__()
         self.set_text("?")
         self.set_color(constants.RED)

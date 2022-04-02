@@ -42,7 +42,6 @@ class HandleCollisionsAction(Action):
         for cart in carts:
             for powerup in powerups:
                 if cart.get_position().equals(powerup.get_position()):
-                    print("\n\n\n", cart, "\n\n\n")
                     powerup.get_action().set_owner(cart)
                     cart.add_powerup(powerup)
                     cast.remove_actor("powerups", powerup)
@@ -54,9 +53,8 @@ class HandleCollisionsAction(Action):
             cast (Cast): The cast of Actors in the game.
         """
         if self._is_game_over:
-            cart = cast.get_first_actor("carts")
-            segments = cart.get_segments()
-            powerup = cast.get_first_actor("powerups")
+            carts = cast.get_actors("carts")
+            powerups = cast.get_actors("powerups")
 
             x = int(constants.MAX_X / 2)
             y = int(constants.MAX_Y / 2)
@@ -67,6 +65,7 @@ class HandleCollisionsAction(Action):
             message.set_position(position)
             cast.add_actor("messages", message)
 
-            for segment in segments:
-                segment.set_color(constants.WHITE)
-            powerup.set_color(constants.WHITE)
+            for cart in carts:
+                cart.set_color(constants.WHITE)
+            for powerup in powerups:
+                powerup.set_color(constants.WHITE)

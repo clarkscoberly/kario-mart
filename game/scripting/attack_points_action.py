@@ -31,7 +31,7 @@ class AttackPointsAction(Action):
         name = cart.get_name()
         opponents = cast.get_actors("scores")
         for opponent in opponents:
-            opponent.add_points(-100, name)
+            opponent.add_points(-100)
 
 
         # Flashes the background color to the cart which used a powerup

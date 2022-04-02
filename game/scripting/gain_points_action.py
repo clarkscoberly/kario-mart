@@ -28,8 +28,12 @@ class GainPointsAction(Action):
         """
         cart = self.get_owner()
         name = cart.get_name()
-        #TODO: fix the points here. 
-        points = Score().add_points(50, name)
+        if name == "Player 1":
+            player_score = cast.get_actor("scores", "score_1")
+            points = player_score.add_points(50)
+        if name == "Player 2":
+            player_score = cast.get_actor("scores", "score_2")
+            points = player_score.add_points(50)
 
 
         # Flashes the background color to the cart which used a powerup

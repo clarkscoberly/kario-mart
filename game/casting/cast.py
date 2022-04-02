@@ -25,6 +25,22 @@ class Cast:
         if not actor in self._actors[group]:
             self._actors[group].append(actor)
 
+    def get_actor(self, group, actor):
+        """Gets a single actor from a given group.
+
+        Args:
+            group (string): the name of the group
+            actor (string): the name of the actor
+
+        Returns:
+            actor (instance): the instance of an actor
+        """
+        results = None
+        if group in self._actors.keys():
+            if actor in group:
+                results = actor
+        return results
+
     def get_actors(self, group):
         """Gets the actors in the given group.
         

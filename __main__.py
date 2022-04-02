@@ -24,12 +24,12 @@ def main():
     # create the cast
     cast = Cast()
 
-    player_one = Cart('Grant')
+    player_one = Cart('Player 1')
     player_one.set_position(Point(5, 5).scale(constants.CELL_SIZE))
     player_one.set_color(constants.BLUE)
     player_one.set_text("O")
 
-    player_two = Cart('Dallin')
+    player_two = Cart('Player 2')
     player_two.set_position(Point(35, 5).scale(constants.CELL_SIZE))
     player_two.set_color(constants.GREEN)
     player_two.set_text("O")
@@ -51,12 +51,12 @@ def main():
 
     
     #TODO: add font-size
-    score_1 = Score("player 1")
+    score_1 = Score()
     score_1.set_position(Point(constants.MAX_X, constants.MAX_Y))
     score_1.set_color(constants.BLUE)
     score_1.set_text("")
 
-    score_2 = Score("Player 2")
+    score_2 = Score()
     score_2.set_position(Point(constants.MAX_X, constants.MAX_Y))
     score_2.set_color(constants.GREEN)
     score_2.set_text("")
@@ -69,8 +69,8 @@ def main():
     #add scores to cast
     cast.add_actor("scores", score_1)
     cast.add_actor("scores", score_2)
-    # cast.add_actor("scores", score_3)
-    
+    # cast.add_actor("scores", score_3)ssssss
+
     # start the game
     keyboard_service = KeyboardService()
     video_service = VideoService()

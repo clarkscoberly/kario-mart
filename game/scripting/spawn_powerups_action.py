@@ -44,9 +44,9 @@ class SpawnPowerupsAction(Action):
                 
                 powerup = PowerUp()
                 powerup.set_position(position)
-                # TODO: change this to randomly select the powerup action to apply
                 selected_powerup = self._select_random_powerup(cast)
                 powerup.set_action(selected_powerup)
+
                 cast.add_actor("powerups", powerup)
 
                 self._start_time = now
@@ -56,6 +56,8 @@ class SpawnPowerupsAction(Action):
         powerups.append(AttackPointsAction(self._audio_service, self._video_service))
         powerups.append(GrowCartAction(self._audio_service, self._video_service))
         powerups.append(GainPointsAction(self._audio_service, self._video_service))
+
+        return random.choice(powerups) 
 
         #Idea to ensure that attack points happens consistently
         # num_powerups = len(cast.get_actors("powerups"))
