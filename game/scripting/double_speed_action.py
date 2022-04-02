@@ -1,14 +1,16 @@
+# import constants
 from game.scripting.action import Action
 from game.casting.score import Score
+from game.shared.point import Point
 import constants
 import datetime
 
 
-class AttackPointsAction(Action):
+class DoubleSpeedAction(Action):
     """
-    An update action that decreases other player's points.
+    An update action that increases a player's speed.
     
-    The responsibility of AttackPointsAction is to decrease the points of all carts except the cart
+    The responsibility of DoubleSpeedAction is to increase the speed of the cart
     that hits a powerup with this action.
     """
 
@@ -20,18 +22,26 @@ class AttackPointsAction(Action):
         self._executed = False
 
     def execute(self, cast, script):
-        """Executes the attack points action.
+        """Executes the gain points action.
 
         Args:
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-
         cart = self.get_owner()
         name = cart.get_name()
-        opponents = cast.get_actors("scores")
-        for opponent in opponents:
-            opponent.add_points(-100, name)
+
+
+        now = datetime.datetime.now()
+        x = cart.get_x()
+        y = cart.get_y()
+        velocity = Point(x * constants.MODIFIER, y * constants.MODIFIER).scale(constants.CELL_SIZE) 
+        if ((now - self._start_time).total_seconds() > 2.0):
+            cart.set_velocity(velocity)
+            script.remove_action("update", self) #might not need this. experiment with taking it out
+
+
+        
 
 
         # Flashes the background color to the cart which used a powerup
@@ -43,7 +53,7 @@ class AttackPointsAction(Action):
             
             # TODO: always change this for the specific kind of powerup action
             # -------------------------------------------------------------------------------------
-            print(f"{name} decreased everyone's points by -100")
+            print(f"increased the speed of {name}'s cart!")
             # -------------------------------------------------------------------------------------
             
             self._executed = True
@@ -56,3 +66,8 @@ class AttackPointsAction(Action):
             # TODO have actor color swap back to original color
 
 
+
+    # def _increase_velocity(self):
+    #         x = velocity.get_x*constants.MODIFIER
+    #         y = velocity.get_y*constants.MODIFIER
+    #         velocity = Point(x,y).scale(constants.CELL_SIZE) 

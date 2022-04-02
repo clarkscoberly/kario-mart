@@ -35,7 +35,7 @@ class ControlActorsAction(Action):
         carts = cast.get_actors("carts")
         player_one = carts[0]
         player_two = carts[1]
-        player_three = carts[2]
+        # player_three = carts[2]
         # player_four = carts[3]
         
         # left
@@ -97,30 +97,30 @@ class ControlActorsAction(Action):
 
 
         # left
-        if self._keyboard_service.is_key_down('c'):
-            direction_three = Point(-constants.CELL_SIZE, 0)
+        # if self._keyboard_service.is_key_down('c'):
+        #     direction_three = Point(-constants.CELL_SIZE, 0)
         
-        # right
-        if self._keyboard_service.is_key_down('b'):
-            direction_three = Point(constants.CELL_SIZE, 0)
+        # # right
+        # if self._keyboard_service.is_key_down('b'):
+        #     direction_three = Point(constants.CELL_SIZE, 0)
         
-        # up
-        if self._keyboard_service.is_key_down('g'):
-            direction_three = Point(0, -constants.CELL_SIZE)
+        # # up
+        # if self._keyboard_service.is_key_down('g'):
+        #     direction_three = Point(0, -constants.CELL_SIZE)
         
-        # down
-        if self._keyboard_service.is_key_down('v'):
-            direction_three = Point(0, constants.CELL_SIZE)
+        # # down
+        # if self._keyboard_service.is_key_down('v'):
+        #     direction_three = Point(0, constants.CELL_SIZE)
         
-        # Drop bomb
-        if self._keyboard_service.is_key_down('f'):
-            powerup = player_three.get_powerup()
-            if powerup is not None:
-                powerup_action = powerup.get_action()
-                powerup_action.set_owner(player_three)
-                script.add_action("update", powerup_action)
+        # # Drop bomb
+        # if self._keyboard_service.is_key_down('f'):
+        #     powerup = player_three.get_powerup()
+        #     if powerup is not None:
+        #         powerup_action = powerup.get_action()
+        #         powerup_action.set_owner(player_three)
+        #         script.add_action("update", powerup_action)
 
-        player_three.turn_cart(direction_three)
+        # player_three.turn_cart(direction_three)
 
 
         # ------------------------------------------------------------------------------------------

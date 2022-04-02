@@ -42,6 +42,7 @@ class HandleCollisionsAction(Action):
         for cart in carts:
             for powerup in powerups:
                 if cart.get_position().equals(powerup.get_position()):
+                    print("\n\n\n", cart, "\n\n\n")
                     powerup.get_action().set_owner(cart)
                     cart.add_powerup(powerup)
                     cast.remove_actor("powerups", powerup)

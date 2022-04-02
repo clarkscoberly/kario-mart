@@ -34,10 +34,10 @@ def main():
     player_two.set_color(constants.GREEN)
     player_two.set_text("O")
     
-    player_three = Cart('Michelle')
-    player_three.set_position(Point(5, 15).scale(constants.CELL_SIZE))
-    player_three.set_color(constants.YELLOW)
-    player_three.set_text("O")
+    # player_three = Cart('Michelle')
+    # player_three.set_position(Point(5, 15).scale(constants.CELL_SIZE))
+    # player_three.set_color(constants.YELLOW)
+    # player_three.set_text("O")
 
     # player_four = Cart('Clark')
     # player_four.set_position(Point(35, 15).scale(constants.CELL_SIZE))
@@ -46,14 +46,30 @@ def main():
 
     cast.add_actor("carts", player_one)
     cast.add_actor("carts", player_two)
-    cast.add_actor("carts", player_three)
+    # cast.add_actor("carts", player_three)
     # cast.add_actor("carts", player_four)
 
-    #TODO: Add scores for each player to cast
-    score_1 = Score()
+    
+    #TODO: add font-size
+    score_1 = Score("player 1")
     score_1.set_position(Point(constants.MAX_X, constants.MAX_Y))
     score_1.set_color(constants.BLUE)
-    score_1.set_text("Score: ")
+    score_1.set_text("")
+
+    score_2 = Score("Player 2")
+    score_2.set_position(Point(constants.MAX_X, constants.MAX_Y))
+    score_2.set_color(constants.GREEN)
+    score_2.set_text("")
+    
+    # score_3 = Score("Player 3")
+    # score_3.set_position(Point(constants.MAX_X, constants.MAX_Y))
+    # score_3.set_color(constants.GREEN)
+    # score_3.set_text("")
+
+    #add scores to cast
+    cast.add_actor("scores", score_1)
+    cast.add_actor("scores", score_2)
+    # cast.add_actor("scores", score_3)
     
     # start the game
     keyboard_service = KeyboardService()
