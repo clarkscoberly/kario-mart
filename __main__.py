@@ -39,15 +39,15 @@ def main():
     player_three.set_color(constants.YELLOW)
     player_three.set_text("O")
 
-    player_four = Cart('Clark')
-    player_four.set_position(Point(35, 15).scale(constants.CELL_SIZE))
-    player_four.set_color(constants.WHITE)
-    player_four.set_text("O")
+    # player_four = Cart('Clark')
+    # player_four.set_position(Point(35, 15).scale(constants.CELL_SIZE))
+    # player_four.set_color(constants.WHITE)
+    # player_four.set_text("O")
 
     cast.add_actor("carts", player_one)
     cast.add_actor("carts", player_two)
     cast.add_actor("carts", player_three)
-    cast.add_actor("carts", player_four)
+    # cast.add_actor("carts", player_four)
 
     score_1 = Score()
     score_1.set_position(Point(constants.MAX_X, constants.MAX_Y))

@@ -98,19 +98,19 @@ class ControlActorsAction(Action):
 
         # left
         if self._keyboard_service.is_key_down('c'):
-            direction_two = Point(-constants.CELL_SIZE, 0)
+            direction_three = Point(-constants.CELL_SIZE, 0)
         
         # right
         if self._keyboard_service.is_key_down('b'):
-            direction_two = Point(constants.CELL_SIZE, 0)
+            direction_three = Point(constants.CELL_SIZE, 0)
         
         # up
         if self._keyboard_service.is_key_down('g'):
-            direction_two = Point(0, -constants.CELL_SIZE)
+            direction_three = Point(0, -constants.CELL_SIZE)
         
         # down
         if self._keyboard_service.is_key_down('v'):
-            direction_two = Point(0, constants.CELL_SIZE)
+            direction_three = Point(0, constants.CELL_SIZE)
         
         # Drop bomb
         if self._keyboard_service.is_key_down('f'):
@@ -120,33 +120,33 @@ class ControlActorsAction(Action):
                 powerup_action.set_owner(player_three)
                 script.add_action("update", powerup_action)
 
-        player_three.turn_cart(direction_two)
+        player_three.turn_cart(direction_three)
 
 
         # ------------------------------------------------------------------------------------------
 
-        # left
-        if self._keyboard_service.is_key_down('i'):
-            direction_two = Point(-constants.CELL_SIZE, 0)
+        # # left
+        # if self._keyboard_service.is_key_down('i'):
+        #     direction_two = Point(-constants.CELL_SIZE, 0)
         
-        # right
-        if self._keyboard_service.is_key_down('p'):
-            direction_two = Point(constants.CELL_SIZE, 0)
+        # # right
+        # if self._keyboard_service.is_key_down('p'):
+        #     direction_two = Point(constants.CELL_SIZE, 0)
         
-        # up
-        if self._keyboard_service.is_key_down('0'):
-            direction_two = Point(0, -constants.CELL_SIZE)
+        # # up
+        # if self._keyboard_service.is_key_down('0'):
+        #     direction_two = Point(0, -constants.CELL_SIZE)
         
-        # down
-        if self._keyboard_service.is_key_down('o'):
-            direction_two = Point(0, constants.CELL_SIZE)
+        # # down
+        # if self._keyboard_service.is_key_down('o'):
+        #     direction_two = Point(0, constants.CELL_SIZE)
         
-        # Drop bomb
-        if self._keyboard_service.is_key_down('9'):
-            powerup = player_four.get_powerup()
-            if powerup is not None:
-                powerup_action = powerup.get_action()
-                powerup_action.set_owner(player_four)
-                script.add_action("update", powerup_action)
+        # # Drop bomb
+        # if self._keyboard_service.is_key_down('9'):
+        #     powerup = player_four.get_powerup()
+        #     if powerup is not None:
+        #         powerup_action = powerup.get_action()
+        #         powerup_action.set_owner(player_four)
+        #         script.add_action("update", powerup_action)
 
-        player_four.turn_cart(direction_two)
+        # player_four.turn_cart(direction_two)

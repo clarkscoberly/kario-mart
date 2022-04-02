@@ -38,11 +38,11 @@ class KeyboardService:
         self._keys['f'] = pyray.KEY_F
 
         # Player 4 controls
-        self._keys['0'] = pyray.KEY_0
-        self._keys['i'] = pyray.KEY_I
-        self._keys['o'] = pyray.KEY_O
-        self._keys['p'] = pyray.KEY_P
-        self._keys['9'] = pyray.KEY_9
+        # self._keys['0'] = pyray.KEY_0
+        # self._keys['i'] = pyray.KEY_I
+        # self._keys['o'] = pyray.KEY_O
+        # self._keys['p'] = pyray.KEY_P
+        # self._keys['9'] = pyray.KEY_9
 
     def is_key_up(self, key):
         """Checks if the given key is currently up.
