@@ -39,6 +39,7 @@ def main():
     # cast.add_actor("carts", player_three)
     # cast.add_actor("carts", player_four)
 
+    #TODO: Add scores for each player to cast
     score_1 = Score()
     score_1.set_position(Point(constants.MAX_X, constants.MAX_Y))
     score_1.set_color(constants.BLUE)

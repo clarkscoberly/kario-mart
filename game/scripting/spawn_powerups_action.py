@@ -2,6 +2,8 @@ import datetime
 import random 
 
 from game.scripting.grow_cart_action import GrowCartAction
+from game.scripting.gain_points_action import GainPointsAction
+from game.scripting.attack_points_action import AttackPointsAction
 from game.scripting.action import Action
 from game.casting.powerup import PowerUp
 from game.shared.point import Point
@@ -42,8 +44,22 @@ class SpawnPowerupsAction(Action):
                 powerup = PowerUp()
                 powerup.set_position(position)
                 # TODO: change this to randomly select the powerup action to apply
-                powerup.set_action(GrowCartAction(self._audio_service, self._video_service))
+                selected_powerup = self._select_random_powerup(cast)
+                powerup.set_action(selected_powerup)
                 cast.add_actor("powerups", powerup)
 
                 self._start_time = now
+
+    def _select_random_powerup(self, cast):
+        powerups = []
+        powerups.append(AttackPointsAction(self._audio_service, self._video_service))
+        powerups.append(GrowCartAction(self._audio_service, self._video_service))
+        powerups.append(GainPointsAction(self._audio_service, self._video_service))
+
+        #Idea to ensure that attack points happens consistently
+        # num_powerups = len(cast.get_actors("powerups"))
+        # if num_powerups == random.randint(2, 4):
+        #     return AttackPointsAction(self._audio_service, self._video_service)
+        # else:
+        #     return random.choice(powerups)
 
