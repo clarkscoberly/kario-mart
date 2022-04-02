@@ -36,7 +36,7 @@ class ControlActorsAction(Action):
         player_one = carts[0]
         player_two = carts[1]
         player_three = carts[2]
-        player_four = carts[3]
+        # player_four = carts[3]
         
         # left
         if self._keyboard_service.is_key_down('a'):
