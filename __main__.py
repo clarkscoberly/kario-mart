@@ -48,13 +48,18 @@ def main():
     cast.add_actor("carts", player_two)
     cast.add_actor("carts", player_three)
     cast.add_actor("carts", player_four)
+
+    score_1 = Score()
+    score_1.set_position(Point(constants.MAX_X, constants.MAX_Y))
+    score_1.set_color(constants.BLUE)
+    score_1.set_text("Score: ")
     
     # start the game
     keyboard_service = KeyboardService()
     video_service = VideoService()
     audio_service = AudioService()
     audio_service.initialize()
-    audio_service.load_sounds("Kario-Mart/assets")
+    audio_service.load_sounds("assets")
 
     script = Script()
     script.add_action("input", ControlActorsAction(keyboard_service))
