@@ -25,19 +25,29 @@ def main():
     cast = Cast()
 
     player_one = Cart('Grant')
-    player_one.set_position(Point(10, 10).scale(constants.CELL_SIZE))
+    player_one.set_position(Point(5, 5).scale(constants.CELL_SIZE))
     player_one.set_color(constants.BLUE)
     player_one.set_text("O")
 
     player_two = Cart('Dallin')
-    player_two.set_position(Point(30, 10).scale(constants.CELL_SIZE))
+    player_two.set_position(Point(35, 5).scale(constants.CELL_SIZE))
     player_two.set_color(constants.GREEN)
     player_two.set_text("O")
     
+    player_three = Cart('Michelle')
+    player_three.set_position(Point(5, 15).scale(constants.CELL_SIZE))
+    player_three.set_color(constants.YELLOW)
+    player_three.set_text("O")
+
+    player_four = Cart('Clark')
+    player_four.set_position(Point(35, 15).scale(constants.CELL_SIZE))
+    player_four.set_color(constants.WHITE)
+    player_four.set_text("O")
+
     cast.add_actor("carts", player_one)
     cast.add_actor("carts", player_two)
-    # cast.add_actor("carts", player_three)
-    # cast.add_actor("carts", player_four)
+    cast.add_actor("carts", player_three)
+    cast.add_actor("carts", player_four)
     
     # start the game
     keyboard_service = KeyboardService()
