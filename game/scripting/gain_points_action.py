@@ -51,7 +51,7 @@ class GainPointsAction(Action):
         if self._executed == False:
             self._start_time = datetime.datetime.now()
             self._video_service.change_background(cart.get_color())
-            self._audio_service.play_sound("assets/mk64_mario_a11.wav")
+            self._audio_service.play_sound("assets\\mk64_mario_a11.wav")
             # TODO have actor color swapped to something different to have it still be visible
             
             # TODO: always change this for the specific kind of powerup action

@@ -58,7 +58,7 @@ def main():
     score_1.set_text("")
 
     score_2 = Score()
-    score_2.set_position(Point(constants.MAX_X, constants.MAX_Y))
+    score_2.set_position(Point(constants.MAX_X + 800, constants.MAX_Y))
     score_2.set_color(constants.GREEN)
     score_2.set_font_size(constants.FONT_SIZE)
     score_2.set_text("")
