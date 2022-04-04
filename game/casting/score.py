@@ -13,6 +13,9 @@ class Score(Actor):
         _points (int): The points earned in the game.
         _player (string): the name of the player 
     """
+
+    # The 11th hour has occurred and the points shall be tabled );
+
     def __init__(self):
         super().__init__()
         self._points = 0

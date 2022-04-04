@@ -54,11 +54,13 @@ def main():
     score_1 = Score()
     score_1.set_position(Point(constants.MAX_X, constants.MAX_Y))
     score_1.set_color(constants.BLUE)
+    score_1.set_font_size(constants.FONT_SIZE)
     score_1.set_text("")
 
     score_2 = Score()
     score_2.set_position(Point(constants.MAX_X, constants.MAX_Y))
     score_2.set_color(constants.GREEN)
+    score_2.set_font_size(constants.FONT_SIZE)
     score_2.set_text("")
     
     # score_3 = Score("Player 3")
@@ -69,7 +71,7 @@ def main():
     #add scores to cast
     cast.add_actor("scores", score_1)
     cast.add_actor("scores", score_2)
-    # cast.add_actor("scores", score_3)ssssss
+    # cast.add_actor("scores", score_3)
 
     # start the game
     keyboard_service = KeyboardService()

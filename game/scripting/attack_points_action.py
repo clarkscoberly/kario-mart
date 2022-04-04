@@ -31,14 +31,16 @@ class AttackPointsAction(Action):
         name = cart.get_name()
         opponents = cast.get_actors("scores")
         for opponent in opponents:
-            opponent.add_points(-100)
+            opponent.add_points(10)
+           
+                
 
 
         # Flashes the background color to the cart which used a powerup
         if self._executed == False:
             self._start_time = datetime.datetime.now()
             self._video_service.change_background(cart.get_color())
-            self._audio_service.play_sound("assets\\explosion.wav")
+            self._audio_service.play_sound("assets/loser.wav")
             # TODO have actor color swapped to something different to have it still be visible
             
             # TODO: always change this for the specific kind of powerup action

@@ -30,15 +30,21 @@ class DoubleSpeedAction(Action):
         """
         cart = self.get_owner()
         name = cart.get_name()
+        opponents = cast.get_actors("scores")
+        for opponent in opponents:
+            
+            opponent.add_points(5)
+        
 
 
-        now = datetime.datetime.now()
-        x = cart.get_x()
-        y = cart.get_y()
-        velocity = Point(x * constants.MODIFIER, y * constants.MODIFIER).scale(constants.CELL_SIZE) 
-        if ((now - self._start_time).total_seconds() > 2.0):
-            cart.set_velocity(velocity)
-            script.remove_action("update", self) #might not need this. experiment with taking it out
+        # now = datetime.datetime.now()
+        # x = cart.get_x()
+        # y = cart.get_y()
+        # cart.get_velocity()
+        # velocity = Point(x * constants.MODIFIER, y * constants.MODIFIER).scale(constants.CELL_SIZE) 
+        # if ((now - self._start_time).total_seconds() > 2.0):
+        #     cart.set_velocity(velocity)
+        #     script.remove_action("update", self) #might not need this. experiment with taking it out
 
 
         
@@ -48,7 +54,7 @@ class DoubleSpeedAction(Action):
         if self._executed == False:
             self._start_time = datetime.datetime.now()
             self._video_service.change_background(cart.get_color())
-            self._audio_service.play_sound("assets\\explosion.wav")
+            self._audio_service.play_sound("assets/igotit_mario.wav")
             # TODO have actor color swapped to something different to have it still be visible
             
             # TODO: always change this for the specific kind of powerup action

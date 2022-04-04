@@ -4,7 +4,7 @@ import random
 from game.scripting.grow_cart_action import GrowCartAction
 from game.scripting.gain_points_action import GainPointsAction
 from game.scripting.attack_points_action import AttackPointsAction
-# from game.scripting.double_speed_action import DoubleSpeedAction 
+from game.scripting.double_speed_action import DoubleSpeedAction 
 from game.scripting.action import Action
 from game.casting.powerup import PowerUp
 from game.shared.point import Point
@@ -35,11 +35,11 @@ class SpawnPowerupsAction(Action):
         num_powerups = len(cast.get_actors("powerups"))
         if num_powerups < self._max_powerups:
             now = datetime.datetime.now()
-            if ((now - self._start_time).total_seconds() > 2.0):
+            if ((now - self._start_time).total_seconds() > 1.0):
                 # need to tell it what action to execute
   
-                x = random.randint(0, constants.COLUMNS)
-                y = random.randint(0, constants.ROWS)
+                x = random.randint(0, constants.COLUMNS * 2) 
+                y = random.randint(0, constants.ROWS * 2)
                 position = Point(x, y).scale(constants.CELL_SIZE)
                 
                 powerup = PowerUp()
@@ -56,7 +56,7 @@ class SpawnPowerupsAction(Action):
         powerups.append(AttackPointsAction(self._audio_service, self._video_service))
         powerups.append(GrowCartAction(self._audio_service, self._video_service))
         powerups.append(GainPointsAction(self._audio_service, self._video_service))
-
+        powerups.append(DoubleSpeedAction(self._audio_service, self._video_service))
         return random.choice(powerups) 
 
         #Idea to ensure that attack points happens consistently

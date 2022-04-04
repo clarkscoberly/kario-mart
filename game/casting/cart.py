@@ -30,3 +30,6 @@ class Cart(Actor):
 
     def turn_cart(self, velocity):
         self.set_velocity(velocity)
+
+    def get_score(self):
+        return 

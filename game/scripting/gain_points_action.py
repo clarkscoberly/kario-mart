@@ -28,24 +28,35 @@ class GainPointsAction(Action):
         """
         cart = self.get_owner()
         name = cart.get_name()
-        if name == "Player 1":
-            player_score = cast.get_actor("scores", "score_1")
-            points = player_score.add_points(50)
-        if name == "Player 2":
-            player_score = cast.get_actor("scores", "score_2")
-            points = player_score.add_points(50)
+        opponents = cast.get_actors("scores")
+        for opponent in opponents:
+            opponent.add_points(45)
+       
+       
+       
+        # scores = cast.get_actors("scores")
+        # for score in scores:
+        #     if name == "Player 1":
+        #         player_score = cast.get_actor("scores", score)
+        #         points_1 = player_score.add_points(50)
+        #         print('\n\n This is working: Otherwise something has gone horribly horribly awry. \n\n')
+        #         return points_1
+        #     if name == "Player 2":
+        #         player_score = cast.get_actor("scores", score)
+        #         points_2 = player_score.add_points(50)
+        #         return points_2
 
 
         # Flashes the background color to the cart which used a powerup
         if self._executed == False:
             self._start_time = datetime.datetime.now()
             self._video_service.change_background(cart.get_color())
-            self._audio_service.play_sound("assets\\explosion.wav")
+            self._audio_service.play_sound("assets/mk64_mario_a11.wav")
             # TODO have actor color swapped to something different to have it still be visible
             
             # TODO: always change this for the specific kind of powerup action
             # -------------------------------------------------------------------------------------
-            print(f"increased the {points} points of {name}'s cart!")
+            # print(f"increased the {points_1} points of {name}'s cart!")
             # -------------------------------------------------------------------------------------
             
             self._executed = True
