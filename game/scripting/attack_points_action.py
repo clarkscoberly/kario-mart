@@ -32,10 +32,17 @@ class AttackPointsAction(Action):
             scores = cast.get_actors("scores")
             score_1 = scores[0]
             score_2 = scores[1]
+            score_3 = scores[2]
             if name == constants.PLAYER_1:
                 score_2.add_points(-100)
+                score_3.add_points(-100)
             if name == constants.PLAYER_2:
                 score_1.add_points(-100)
+                score_3.add_points(-100)
+            if name == constants.PLAYER_3:
+                score_1.add_points(-100)
+                score_2.add_points(-100)
+
            
                 
 

@@ -32,9 +32,9 @@ class KeyboardService:
 
         # Player 3 controls
         self._keys['g'] = pyray.KEY_G
-        self._keys['c'] = pyray.KEY_C
-        self._keys['v'] = pyray.KEY_V
-        self._keys['b'] = pyray.KEY_B
+        self._keys['t'] = pyray.KEY_T
+        self._keys['r'] = pyray.KEY_R
+        self._keys['h'] = pyray.KEY_H
         self._keys['f'] = pyray.KEY_F
 
         # Player 4 controls

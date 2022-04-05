@@ -2,6 +2,7 @@ from game.shared.color import Color
 
 PLAYER_1 = "Captain"
 PLAYER_2 = "Pirate"
+PLAYER_3 = "Monkey"
 COLUMNS = 40
 ROWS = 20
 CELL_SIZE = 15

@@ -32,24 +32,16 @@ class GainPointsAction(Action):
             scores = cast.get_actors("scores")
             score_1 = scores[0]
             score_2 = scores[1]
+            score_3 = scores[2]
             if name == constants.PLAYER_1:
                 score_1.add_points(50)
             if name == constants.PLAYER_2:
                 score_2.add_points(50)
+            if name == constants.PLAYER_3:
+                score_3.add_points(50)
 
        
-       
-        # scores = cast.get_actors("scores")
-        # for score in scores:
-        #     if name == "Player 1":
-        #         player_score = cast.get_actor("scores", score)
-        #         points_1 = player_score.add_points(50)
-        #         print('\n\n This is working: Otherwise something has gone horribly horribly awry. \n\n')
-        #         return points_1
-        #     if name == "Player 2":
-        #         player_score = cast.get_actor("scores", score)
-        #         points_2 = player_score.add_points(50)
-        #         return points_2
+
 
 
         # Flashes the background color to the cart which used a powerup
