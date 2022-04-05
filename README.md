@@ -5,6 +5,7 @@ killer soundeffects and psychedelic flashes of color announcing when a powerup h
 
 Player one: w-a-s-d and q (powerup)
 Player two: i-j-k-l and u (powerup)
+Player three: f-t-g-h and r (powerup)
 
 ## Getting Started
 ---
