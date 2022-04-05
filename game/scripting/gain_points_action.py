@@ -34,11 +34,11 @@ class GainPointsAction(Action):
             score_2 = scores[1]
             score_3 = scores[2]
             if name == constants.PLAYER_1:
-                score_1.add_points(50)
+                score_1.add_points(100)
             if name == constants.PLAYER_2:
-                score_2.add_points(50)
+                score_2.add_points(100)
             if name == constants.PLAYER_3:
-                score_3.add_points(50)
+                score_3.add_points(100)
 
        
 
