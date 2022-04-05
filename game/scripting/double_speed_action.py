@@ -1,4 +1,4 @@
-# import constants
+
 from game.scripting.action import Action
 from game.casting.score import Score
 from game.shared.point import Point
@@ -14,10 +14,11 @@ class DoubleSpeedAction(Action):
     that hits a powerup with this action.
     """
 
-    def __init__(self, audio_service, video_service):
+    def __init__(self, audio_service, video_service, control_actors):
         super().__init__()
         self._audio_service = audio_service
         self._video_service = video_service
+        self._control_actors = control_actors
         self._start_time = datetime.datetime.now()
         self._executed = False
 
@@ -28,23 +29,36 @@ class DoubleSpeedAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-        cart = self.get_owner()
-        name = cart.get_name()
-        opponents = cast.get_actors("scores")
-        for opponent in opponents:
-            
-            opponent.add_points(5)
-        
+
+        if self._executed == False:
+            cart = self.get_owner()
+            name = cart.get_name()
+            now = datetime.datetime.now()
 
 
-        # now = datetime.datetime.now()
-        # x = cart.get_x()
-        # y = cart.get_y()
-        # cart.get_velocity()
-        # velocity = Point(x * constants.MODIFIER, y * constants.MODIFIER).scale(constants.CELL_SIZE) 
-        # if ((now - self._start_time).total_seconds() > 2.0):
-        #     cart.set_velocity(velocity)
-        #     script.remove_action("update", self) #might not need this. experiment with taking it out
+            if name == constants.PLAYER_1:
+                    self._control_actors.control_player_1(script, cart, constants.MODIFIER)
+                    self._start_time = datetime.datetime.now()
+            if name == constants.PLAYER_2:
+                    self._control_actors.control_player_2(script, cart, constants.MODIFIER)
+                    self._start_time = datetime.datetime.now()
+
+            now = datetime.datetime.now()
+            if ((now - self._start_time).total_seconds() > 3.0) and name == constants.PLAYER_1:
+                self._control_actors.control_player_1(script, cart, 1)
+            if ((now - self._start_time).total_seconds() > 3.0) and name == constants.PLAYER_2:
+                self._control_actors.control_player_2(script, cart, 1)
+
+    
+    
+    
+                # x = cart.get_velocity().get_x()
+                # y = cart.get_velocity().get_y()
+                # print("\n\n\n", x, y, "\n\n\n")
+                # velocity = Point(x * constants.MODIFIER, y * constants.MODIFIER).scale(constants.CELL_SIZE) 
+                # print("\n\n\n", x, y, "\n\n\n")
+
+                # cart.set_velocity(velocity)
 
 
         

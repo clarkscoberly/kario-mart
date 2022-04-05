@@ -24,12 +24,12 @@ def main():
     # create the cast
     cast = Cast()
 
-    player_one = Cart('Player 1')
+    player_one = Cart(constants.PLAYER_1)
     player_one.set_position(Point(5, 5).scale(constants.CELL_SIZE))
     player_one.set_color(constants.BLUE)
     player_one.set_text("O")
 
-    player_two = Cart('Player 2')
+    player_two = Cart(constants.PLAYER_2)
     player_two.set_position(Point(35, 5).scale(constants.CELL_SIZE))
     player_two.set_color(constants.GREEN)
     player_two.set_text("O")
@@ -77,12 +77,13 @@ def main():
     keyboard_service = KeyboardService()
     video_service = VideoService()
     audio_service = AudioService()
+    control_actors = ControlActorsAction(keyboard_service)
     audio_service.initialize()
     audio_service.load_sounds("assets")
 
     script = Script()
     script.add_action("input", ControlActorsAction(keyboard_service))
-    script.add_action("input", SpawnPowerupsAction(audio_service, video_service))
+    script.add_action("input", SpawnPowerupsAction(audio_service, video_service, control_actors))
     script.add_action("update", MoveActorsAction())
     script.add_action("update", HandleCollisionsAction())
     script.add_action("output", DrawActorsAction(video_service))

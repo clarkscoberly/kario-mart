@@ -18,11 +18,12 @@ class SpawnPowerupsAction(Action):
     than zero.
     """
 
-    def __init__(self, audio_service, video_service):
+    def __init__(self, audio_service, video_service, control_actors):
         self._start_time = datetime.datetime.now()
         self._max_powerups = constants.NUMBER_OF_POWERUPS
         self._video_service = video_service
         self._audio_service = audio_service
+        self._control_actors = control_actors
         # TODO list of possible powerup actions (about) line 43
         
     def execute(self, cast, script):
@@ -54,15 +55,8 @@ class SpawnPowerupsAction(Action):
     def _select_random_powerup(self, cast):
         powerups = []
         powerups.append(AttackPointsAction(self._audio_service, self._video_service))
-        powerups.append(GrowCartAction(self._audio_service, self._video_service))
+        # powerups.append(GrowCartAction(self._audio_service, self._video_service))
         powerups.append(GainPointsAction(self._audio_service, self._video_service))
-        powerups.append(DoubleSpeedAction(self._audio_service, self._video_service))
+        # powerups.append(DoubleSpeedAction(self._audio_service, self._video_service, self._control_actors))
         return random.choice(powerups) 
-
-        #Idea to ensure that attack points happens consistently
-        # num_powerups = len(cast.get_actors("powerups"))
-        # if num_powerups == random.randint(2, 4):
-        #     return AttackPointsAction(self._audio_service, self._video_service)
-        # else:
-        #     return random.choice(powerups)
 

@@ -26,12 +26,16 @@ class AttackPointsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-
-        cart = self.get_owner()
-        name = cart.get_name()
-        opponents = cast.get_actors("scores")
-        for opponent in opponents:
-            opponent.add_points(-100)
+        if self._executed == False:
+            cart = self.get_owner()
+            name = cart.get_name()
+            scores = cast.get_actors("scores")
+            score_1 = scores[0]
+            score_2 = scores[1]
+            if name == constants.PLAYER_1:
+                score_2.add_points(-100)
+            if name == constants.PLAYER_2:
+                score_1.add_points(-100)
            
                 
 
